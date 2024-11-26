@@ -1,0 +1,134 @@
+package javaapplication1;
+import java.util.*;
+
+public class JavaApplication1 {
+  
+    public static void main(String[] args) {
+        int kPuanı=20,
+            bPuanı=20;    
+ //taş kağıt makas oyunu
+ //kullanıcı ve bilgisayar yarışacak
+ //kullanıcı puanı  ve bilgisayar puanı olsun
+ //100 puana ulaşan kazanır veya 0 puana ulaşan kaybeder
+ //el kazanma: 10 puan 
+ //kaybeden: 10 puan kaybeder
+ //beraberlik durumunda : 5 puan kaybeder
+ //taş->kağıt; kağıt kazanır
+ //taş->makas taş kazanır
+ //1-> taş 2->kağıt 3->makas
+ //bitiş ve başlangıç durumları ve belirlenmiş koşulları işlenir
+ Scanner veri=new Scanner(System.in);
+ Random rast=new Random();
+ System.out.println("oyun zorluk derecesi girin 1:kolay,2:orta,3:zor");
+ int zorluk=veri.nextInt();
+ if (zorluk==1)
+ {
+     bPuanı=10;
+     kPuanı=30;
+ }
+ if (zorluk==2)
+ {
+     bPuanı=20;
+     kPuanı=50;
+ }
+ if (zorluk ==1)
+ {
+     bPuanı=30;
+     kPuanı=60;
+ }
+ for(;;)
+ {
+     if(bPuanı>=100)
+     {
+         System.out.println("bilgisayar kazandı");
+         System.out.println("bilgisayar puanı: "+bPuanı);
+         System.out.println("kullanıcı puanı:  "+kPuanı);
+          break;
+     }
+     if(kPuanı>=100)
+     {
+         System.out.println("kullanıcı kazandı");
+         System.out.println("kullanıcı puanı: "+bPuanı);
+          System.out.println("bilgisayar puanı:  "+kPuanı);
+          break;
+     }
+     if(bPuanı<=0)
+     {
+         System.out.println("bilgisayar kazandı(kullanıcı 0 ) ");
+         System.out.println("bilgisayar puanı: "+bPuanı);
+          System.out.println("kullanıcı  puanı:  "+kPuanı);
+          break;
+     }
+     if(kPuanı>=100)
+     {
+         System.out.println("bilgisayar kazandı(kullanıcı 0 )");
+         System.out.println("bilgisayar puanı: "+bPuanı);
+          System.out.println("kullanıcı puanı:  "+kPuanı);
+          break;
+     }
+     int bSecim=rast.nextInt(1,3+1);
+     System.out.println("tercih (1-taş 2-kağıt 3-makas)");
+     int kSecim=veri.nextInt();
+     if(kSecim>3|| kSecim<1)
+     {
+         System.out.println("Geçersiz seçim");
+         continue;
+         
+     }
+     if(bSecim==kSecim)
+     {
+         kPuanı-=5;
+         bPuanı-=5;
+         System.out.println("berabere");
+     }
+     //kullanıcı - bilgisayar
+     //k:1 -taş b:k,m
+     if(kSecim==1 && bSecim==2)
+     {
+         System.out.println("kağıt taşı sarar");
+         System.out.println("bilgisayar kazandı");
+         kPuanı-=10;
+         bPuanı-=10;
+     }
+     if(kSecim==1 && bSecim==3)
+     {
+         System.out.println("taş makası kırar");
+         System.out.println("kullanıcı kazandı");
+         kPuanı+=10;
+         bPuanı+=10;
+     }
+     if(kSecim==2 && bSecim==1)
+     {
+         System.out.println("kağıt taşı sarar");
+         System.out.println("kullanıcı kazandı");
+         kPuanı+=10;
+         bPuanı-=10;
+     }
+     if(kSecim==2 && bSecim==3)
+     {
+         System.out.println("maks kağıdı keser");
+         System.out.println("bilgisayar kazandı");
+         kPuanı-=10;
+         bPuanı+=10;
+     }
+     if(kSecim==3 && bSecim==1)
+     {
+         System.out.println("taş makası kırar");
+         System.out.println("bilgisayar kazandı");
+         kPuanı-=10;
+         bPuanı+=10;
+     }
+     if(kSecim==3 && bSecim==2)
+     {
+         System.out.println("makas kağıdı keser");
+         System.out.println("kullanıcı kazandı");
+         kPuanı+=10;
+         bPuanı-=10;
+     }
+     System.out.println("Kullanıcı Tercihi: "+kSecim);
+     System.out.println("bilgisayar Tercihi: "+bSecim);
+     System.out.println("b puan: "+bPuanı);
+     System.out.println("k puan: "+kPuanı);
+ }
+   }    
+}
