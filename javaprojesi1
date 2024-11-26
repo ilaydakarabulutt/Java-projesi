@@ -1,0 +1,25 @@
+package javaprojesi1;
+import java.util.*;
+
+public class javaprojesi1 {
+//0-49 6 tane sayı oluyor
+// 6 tane 0 ile 49 arasında
+//sayı oluşturup bunları yanyana ekrana yazan program
+//10 kolon olsun    
+    public static void main(String[] args) {
+        Scanner veri=new Scanner (System.in);
+        System.out.println("kaç tane kolon olucak? ");
+        int adet=veri.nextInt();
+Random r=new Random();
+{
+for(int j=1;j<=10;j++)
+    
+for(int i=0;i<6;i++)
+{
+    int rastgele=r.nextInt(0,49+1);
+    System.out.print(rastgele+",");
+}
+System.out.println("");
+      }   
+   }    
+}
